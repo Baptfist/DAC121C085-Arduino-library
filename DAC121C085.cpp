@@ -8,7 +8,7 @@
  */
  
  
- void ADS1112::init_address(byte A0, byte A1)
+ void DAC121C085::init_address(byte A0, byte A1)
 {
 	if (A1 == F && A1 == F) I2C_ADDRESS = B0001100;
 	else if (A1 == F && A0 == L) I2C_ADDRESS = B0001101;
@@ -22,10 +22,10 @@
 }
 
 
-boolean ADS1112::write_voltage(float voltage)
+boolean DAC121C085::write_voltage(float voltage)
 {
 	
-	uint16_t D = voltage/Vref*4096;
+	uint16_t D = voltage/VRef*4096;
 	if (D<=4095){
 		uint8_t LSByte = D;
 		
